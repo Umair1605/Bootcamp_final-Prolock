@@ -1,0 +1,185 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "txHash": "0x3448654e1912485dec10d16dc9a93ae529347b58b1f248e8bacf33a37abe02b4"
+  },
+  "proxies": [
+    {
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "txHash": "0x10a1f6c7973c572c60e0141af5b66b210e6e2fde479c944d46d3883b1ce0defb",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+      "txHash": "0xb14f5b715d673070166e76878185898f327a90e852e1b6e449730be285d178b1",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      "txHash": "0x9efb99af77f28adb9009f6de7f9e2a783ed81e7b0964a2115768de56cdc833c0",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+      "txHash": "0x887d9be7f983fdf5402990e7651435f0247df6a761b13fee3f42ce83ac1b2d5c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+      "txHash": "0x69be53bedb8c16939cf1004a5b5193a299b7437a2a1e0c9406298d8e671788be",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e",
+      "txHash": "0x831fc4d35671fd63816b2419b5c8750e942479d1e10289618183eb2c5209e3f3",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0DCd1Bf9A1b36cE34237eEaFef220932846BCD82",
+      "txHash": "0x7ca6ec1c7138f934172a5d69c07e94959765b4138d33a459c1268d70c2ff728e",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+      "txHash": "0xde270bf1f9de940737900c88ac7fe7a6ce7debc501cf814ff1de115b74d92019",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0",
+      "txHash": "0xd2859d5d42fda29a195865e98e8305848b3e710186c0438b68f94ff89a745873",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
+      "txHash": "0x60266423cc342f442e975625a41779a190040406dfff5c2a0c66ad05f609c558",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE",
+      "txHash": "0x48faf670fee414053786a07573729decb5ea9f46fe66ed2d15218e5ff57f3017",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+      "txHash": "0xbb4e46c60b30e0fb5130cf173d806a47c35dfc68b83ce59698b13a61430bb2bd",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x59b670e9fA9D0A427751Af201D676719a970857b",
+      "txHash": "0x21d4a036cbc90bae87659b7ffcecf852c8bf2223090595f1ffa55888dd8f7c37",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      "txHash": "0x518554ece8611c3acae6dc6294bf6195029e8045fa3ce6ebdb5061a3b398b7fc",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "5387867ef4556935f9528f01e605b69a9f1105c330718f227a6106c7033cd9a5": {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "txHash": "0x7a4c3e8c99c5bf017d567a2bd8e42f860fc29595fbd45b72f7435eb8da0051ba",
+      "layout": {
+        "storage": [
+          {
+            "label": "feeAccount",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address_payable",
+            "contract": "Marketplace",
+            "src": "src\\backend\\contracts\\Marketplace.sol:12"
+          },
+          {
+            "label": "feePercent",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "Marketplace",
+            "src": "src\\backend\\contracts\\Marketplace.sol:13"
+          },
+          {
+            "label": "itemCount",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "Marketplace",
+            "src": "src\\backend\\contracts\\Marketplace.sol:14"
+          },
+          {
+            "label": "items",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_uint256,t_struct(Item)1733_storage)",
+            "contract": "Marketplace",
+            "src": "src\\backend\\contracts\\Marketplace.sol:52"
+          }
+        ],
+        "types": {
+          "t_address_payable": {
+            "label": "address payable",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(IERC721)981": {
+            "label": "contract IERC721",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_struct(Item)1733_storage)": {
+            "label": "mapping(uint256 => struct Marketplace.Item)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Item)1733_storage": {
+            "label": "struct Marketplace.Item",
+            "members": [
+              {
+                "label": "itemId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "nft",
+                "type": "t_contract(IERC721)981",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "seller",
+                "type": "t_address_payable",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "sold",
+                "type": "t_bool",
+                "offset": 20,
+                "slot": "4"
+              }
+            ],
+            "numberOfBytes": "160"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    }
+  }
+}
