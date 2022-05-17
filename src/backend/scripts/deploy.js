@@ -6,7 +6,6 @@ async function main() {
   
     console.log("Deploying contracts with the account:", deployer.address);
     console.log("Account balance:", (await deployer.getBalance()).toString());
-  
     // deploy contracts here
     const PropertyPlace = await ethers.getContractFactory("PropertyPlace");
     const propertyplace = await PropertyPlace.deploy()

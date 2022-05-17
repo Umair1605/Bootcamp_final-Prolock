@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react'
 import { ethers } from "ethers"
 import { Row,Form, Col, Card,Button } from 'react-bootstrap'
 
-
-
-function renderSoldItems(properties) {
+function OnSoldProperties(properties) {
     return (
         <>
             <h2>ON Sale</h2>
@@ -36,10 +34,10 @@ const MyPurchases = ({ propertyplace, account }) => {
     const [loading, setLoading] = useState(true)
     const [purchases, setPurchases] = useState([])
     const [properties, setProperties] = useState([])
-    const [soldItems, setSoldItems] = useState([])
+    const [onsold, setOnSold] = useState([])
     const [price, setPrice] = useState(null)
 
-    const loadPurchasedItems = async () => {
+    const loadPurchasedProperties = async () => {
         const propertyCount =  await (propertyplace._tokenIds());
         for (let i = 1; i <= propertyCount; i++) {
             const property = await propertyplace.properties(i)
@@ -63,7 +61,7 @@ const MyPurchases = ({ propertyplace, account }) => {
                     })
                 }
                 else {
-                    soldItems.push( {
+                    onsold.push( {
                         totalPrice: property.price,
                         propertyId: property.tokenId,
                         owner: tokenOwner,
@@ -82,16 +80,21 @@ const MyPurchases = ({ propertyplace, account }) => {
             window.alert("Please fill the price");
             return
         }
-        const tx = await propertyplace.putOnSale(property.propertyId, ethers.utils.parseEther(price)).catch((e) => {
-            window.alert(e.data.message);
-        });
-		const rc = await tx.wait(); // 0ms, as tx is already confirmed
-		const event = rc.events.find(event => event.event === 'InvoiceCreated');
-        loadPurchasedItems()
+        const metaAccount = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        if(metaAccount[0] === account) {
+            const tx = await propertyplace.putOnSale(property.propertyId, ethers.utils.parseEther(price)).catch((e) => {
+                window.alert(e.data.message);
+            });
+            const rc = await tx.wait(); // 0ms, as tx is already confirmed
+            const event = rc.events.find(event => event.event === 'InvoiceCreated');
+            loadPurchasedProperties()
+        } else {
+            window.alert("Your MetaMask Is different, Please change your account");
+        }
     }
 
     useEffect(() => {
-        loadPurchasedItems()
+        loadPurchasedProperties()
     }, [])
 
     if (loading) return (
@@ -101,7 +104,7 @@ const MyPurchases = ({ propertyplace, account }) => {
     )
     return (
         <div className="flex justify-center">
-        {properties.length || soldItems.length > 0 ?
+        {properties.length || onsold.length > 0 ?
             <div className="px-5 py-3 container">
                 <h2>Purchase Property</h2>
                 <Row xs={1} md={2} lg={4} className="g-4 py-5">
@@ -131,7 +134,7 @@ const MyPurchases = ({ propertyplace, account }) => {
                     </Col>
                     ))}
                 </Row>
-                {soldItems.length > 0 && renderSoldItems(soldItems)}
+                {onsold.length > 0 && OnSoldProperties(onsold)}
             </div>
         : (
           <main style={{ padding: "1rem 0" }}>

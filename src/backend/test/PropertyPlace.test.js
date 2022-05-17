@@ -92,24 +92,6 @@ const { expect } = require("chai");
             await propertyplace.connect(addr2).purchaseProperty(1, {value: price});
             await expect( propertyplace.connect(addr3).purchaseProperty(1, {value: price})).to.be.revertedWith("NotOnSale");
         });
-
-        // it("Should transfer the price" , async() => {
-        //     const price1 = toWei(2);
-        //     sellerBal = await addr1.getBalance()
-        //     console.log("Seellerbal : ",fromWei(sellerBal));
-        //     buyerBal = await addr2.getBalance()
-        //     const tx = await propertyplace.connect(addr2).purchaseProperty(1, {value: 2});
-		// 	const rc = await tx.wait(); // 0ms, as tx is already confirmed
-		// 	const event = rc.events.find(event => event.event === 'Bought');
-        //     const sellerBal1 = await addr1.getBalance()
-        //     console.log("Seellerbal1 : ",fromWei(sellerBal1));
-        //     const check = fromWei(sellerBal1) + fromWei(price);
-        //     console.log(check);
-        //     const buyerBal1 = await addr2.getBalance()
-        //     expect(fromWei(sellerBal1)).to.equal(fromWei(sellerBal1) + fromWei(price));
-        //     expect(fromWei(buyerBal1)).to.equal(fromWei(buyerBal) - fromWei(price));
-
-        // })
     })
     describe("Put On Sale" , async() => {
         let price;

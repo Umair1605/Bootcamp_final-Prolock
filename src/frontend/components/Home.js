@@ -32,12 +32,19 @@ const Home = ({ propertyplace,account }) => {
         setProperties(properties)
     }
     const buyProperty = async (property) => {
-        const tx = await propertyplace.purchaseProperty(property.propertyId, { value: property.totalPrice }).catch((e) => {
-            window.alert(e.data.message);
-        });
-		const rc = await tx.wait(); // 0ms, as tx is already confirmed
-        const event = rc.events.find(event => event.event === 'Bought');
-        loadProperties()
+        const metaAccount = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        if(metaAccount[0] === account) {
+            const tx = await propertyplace.purchaseProperty(property.propertyId, { value: property.totalPrice }).catch((e) => {
+                window.alert(e.data.message);
+            });
+            const rc = await tx.wait(); // 0ms, as tx is already confirmed
+            const event = rc.events.find(event => event.event === 'Bought');
+            loadProperties()
+        } else {
+            window.alert("Your MetaMask Is different, Please change your account");
+        }
+
+
     }
     useEffect(() => {
         console.log(propertyplace._tokenIds);

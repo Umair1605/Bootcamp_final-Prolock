@@ -42,11 +42,17 @@ const Create = ({ propertyplace, account }) => {
     const listProperty = async (result) => {
         const uri = `https://ipfs.infura.io/ipfs/${result.path}`
         const listingPrice = ethers.utils.parseEther(price.toString())
-        const tx = await propertyplace.registerProperty(uri, listingPrice).catch((e) => {
-            window.alert(e.data.message);
-        });
-		const rc = await tx.wait(); // 0ms, as tx is already confirmed
-        navigate('/');
+        const metaAccount = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        if(metaAccount[0] === account) {
+            const tx = await propertyplace.registerProperty(uri, listingPrice).catch((e) => {
+                window.alert(e.data.message);
+            });
+            const rc = await tx.wait(); // 0ms, as tx is already confirmed
+            navigate('/');
+        }
+        else {
+            window.alert("Your MetaMask Is different, Please change your account");
+        }
     }
     return (
         <div className="container-fluid mt-5">
