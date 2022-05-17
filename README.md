@@ -14,7 +14,8 @@ npx hardhat node
 ![4](https://user-images.githubusercontent.com/67243313/168853027-39bc8de7-4c86-41d4-8f3a-8ba47add0e24.PNG)
 ### Import Account In Metamask:<br>
 Enter your Account private key:<br><br>
-![6](https://user-images.githubusercontent.com/67243313/168854232-dbb2b5e9-3d32-4fb5-8219-36230172f6bf.PNG)## Step 3: Deployment
+![6](https://user-images.githubusercontent.com/67243313/168854232-dbb2b5e9-3d32-4fb5-8219-36230172f6bf.PNG)
+### Step 3: Deployment
 Open another terminal on the same directory
 ```bash
 npx hardhat run --network localhost src/backend/scripts/deploy.js
